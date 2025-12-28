@@ -7,7 +7,7 @@ nodes = {}
 @app.route('/')
 def home():
     current_time = time.time()
-    active_nodes = {k: v for k, v in nodes.items() if current_time - v['last_seen'] < 60}
+    active_nodes = {k: v for k, v in nodes.items() if current_time - v['last_seen'] < 15}
     total_power = sum(node['power'] for node in active_nodes.values())
     return f"""
     <html>
